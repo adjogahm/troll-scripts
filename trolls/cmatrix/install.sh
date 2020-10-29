@@ -24,9 +24,10 @@ esac
 
 if [[ ${MACHINE} == "darwin" ]]; then
   brew install cmatrix
+  # Will popup on 66% of the clear requests on the terminal, with a timeout of 3 seconds
   sudo cat >> "${FILE}" <<EOF1
 
-alias clear='[ $[$RANDOM % 20] = 0 ] && timeout 3 cmatrix; clear || clear'
+alias clear='[ $[$RANDOM % 66] = 0 ] && timeout 3 cmatrix; clear || clear'
 
 EOF1
 elif [[ ${MACHINE} == "linux" ]]; then
@@ -34,7 +35,7 @@ elif [[ ${MACHINE} == "linux" ]]; then
   [[ -n "$(command -v apt-get)" ]] && MACHINE=debian
   sudo cat >> "${FILE}" <<EOF1
 
-alias clear='[ $[$RANDOM % 20] = 0 ] && timeout 3 cmatrix; clear || clear'
+alias clear='[ $[$RANDOM % 66] = 0 ] && timeout 3 cmatrix; clear || clear'
 
 EOF1
   if [[ ${MACHINE} == "redhat" ]]; then

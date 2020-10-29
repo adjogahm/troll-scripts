@@ -6,7 +6,8 @@ script_dir=$(dirname $(realpath $0))
 PS3='Select an option and press Enter: '
 options=("clipboard (level 0)" "mindBlow (level 1)" "goat (level 2)" "cmatrix (techie 0)" "all")
 
-COLUMNS=1 select opt in "${options[@]}"
+COLUMNS=1 
+select opt in "${options[@]}"
 do
   case $opt in
     "clipboard (level 0)")

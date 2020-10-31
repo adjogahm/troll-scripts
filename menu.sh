@@ -6,6 +6,21 @@ script_dir=$(dirname $(realpath $0))
 PS3='Select an option and press Enter: '
 options=("clipboard (level 0)" "mindBlow (level 1)" "goat (level 2)" "cmatrix (techie 0)" "all")
 
+unameOut=$(uname -s)
+case ${unameOut} in
+  Darwin*)
+    export MACHINE=darwin
+  ;;
+  Linux*)
+    [[ -n "$(command -v yum)" ]] && export MACHINE=redhat
+    [[ -n "$(command -v apt-get)" ]] && export MACHINE=debian
+  ;;
+  *)
+    export MACHINE="UNKNOWN:${unameOut}"
+  ;;
+esac
+
+clear
 COLUMNS=1 
 select opt in "${options[@]}"
 do
@@ -32,8 +47,8 @@ do
     ;;
     "all")
       echo -e "${MENU}All${OFF}"
-      for folder in $(ls -d ${script_dir}/trolls/*/); do
-        sh $folder/install.sh
+      for folder in $(ls -d ${script_dir}/trolls/*); do
+        sh ${folder}/install.sh
       done
       break
     ;;

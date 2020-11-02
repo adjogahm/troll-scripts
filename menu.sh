@@ -52,6 +52,9 @@ do
       done
       break
     ;;
-    *) echo -e "${ERROR}Invalid option${OFF}";;
+    *)
+      echo -e "${ERROR}Invalid option${OFF}"
+      break
+    ;;
   esac
 done

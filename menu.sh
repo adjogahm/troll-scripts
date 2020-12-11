@@ -26,34 +26,34 @@ select opt in "${options[@]}"
 do
   case $opt in
     "clipboard (level 0)")
-      echo -e "${MENU}Clipboard${OFF}"
+      print "${MENU}Clipboard${OFF}"
       sh ${script_dir}/trolls/clipboard/install.sh
       break
     ;;
     "mindBlow (level 1)")
-      echo -e "${MENU}MindBlow${OFF}"
+      print "${MENU}MindBlow${OFF}"
       sh ${script_dir}/trolls/mindBlow/install.sh
       break
     ;;
     "goat (level 2)")
-      echo -e "${MENU}Goat${OFF}"
+      print "${MENU}Goat${OFF}"
       sh ${script_dir}/trolls/goat/install.sh
       break
     ;;
     "cmatrix (techie 0)")
-      echo -e "${MENU}Cmatrix${OFF}"
+      print "${MENU}Cmatrix${OFF}"
       sh ${script_dir}/trolls/cmatrix/install.sh
       break
     ;;
     "all")
-      echo -e "${MENU}All${OFF}"
+      print "${MENU}All${OFF}"
       for folder in $(ls -d ${script_dir}/trolls/*); do
         sh ${folder}/install.sh
       done
       break
     ;;
     *)
-      echo -e "${ERROR}Invalid option${OFF}"
+      print "${ERROR}Invalid option${OFF}"
       break
     ;;
   esac

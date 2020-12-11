@@ -31,6 +31,6 @@ else
   elif [[ ${MACHINE} == "debian" ]]; then
     apt-get install -f cmatrix
   else
-    echo -e "\nOS unsupported!"
+    print "\nOS unsupported!"
   fi
 fi

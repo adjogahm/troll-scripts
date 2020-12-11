@@ -13,6 +13,6 @@ else
     apt-get install -f xclip
     nohup $(while [[ $(date +%s) -le ${end_date} ]]; do sleep 1; echo -n "poop" | xclip; done) &
   else
-    echo -e "\nOS unsupported!"
+    print "\nOS unsupported!"
   fi
 fi
